@@ -39,7 +39,11 @@ export const ContextProvider = ({ children }) => {
       } else {
 
         console.log('No conectado')
-        
+        setCart({
+          totalQuantity: 0,
+          totalPrice: 0,
+          coffees: {}
+        })
        
        
 
