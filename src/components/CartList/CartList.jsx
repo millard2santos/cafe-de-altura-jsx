@@ -18,13 +18,15 @@ export const CartList = () => {
           <div className="flex flex-col gap-6">
             <p className="font-semibold text-lg">Productos</p>
             <div className="flex flex-col gap-6" id="container">
-              <div className="self-center" id="empty">
-                <p>No tienes productos en tu cesta</p>
-              </div>
+              {
+                cart.totalQuantity === 0 ? <div className="self-center" id="empty">
+                  <p>No tienes productos en tu cesta</p>
+                </div> : ''
+              }
               {
                 Object.values(cart.coffees).map((item, i) => <CartItem key={i} item={item} i={i} last={Object.values(cart.coffees).length} />)
               }
-              
+
             </div>
           </div>
           <div className="flex flex-col gap-6 mt-6" id="envioDiv">

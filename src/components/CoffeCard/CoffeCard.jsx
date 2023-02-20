@@ -1,34 +1,42 @@
 import { useContext } from "react"
 import { CoffeContext } from "../../context/ContextProvider"
+import { setDoc, doc } from 'firebase/firestore'
+import { db } from "../../utilities"
 
-export const CoffeCard = ({ id,img, name, price, available }) => {
+export const CoffeCard = ({ id, img, name, price, available }) => {
 
 
-    const {setCart} = useContext(CoffeContext)
+    const { setCart, setUser, user } = useContext(CoffeContext)
 
     const handleClick = () => {
 
-        if(available){
-            setCart( prev => {
-                const holdPrev = {...prev}
-    
-                holdPrev.totalQuantity += 1
-                holdPrev.totalPrice += price 
-    
-                if(holdPrev.coffees[id]){
-                    holdPrev.coffees[id].quantity += 1
-                }else{
-                    holdPrev.coffees[id] = {
+        if (available) {
+
+
+
+
+            setCart( (prev) => {
+                const cart = { ...prev }
+                
+                cart.totalQuantity += 1
+                cart.totalPrice += price
+
+                if (cart.coffees[id]) {
+                    cart.coffees[id].quantity += 1
+                } else {
+                    cart.coffees[id] = {
                         id,
                         name,
                         price,
                         img,
-                        quantity : 1
+                        quantity: 1
                     }
                 }
-                console.log(holdPrev)
-                return holdPrev
-    
+
+                 
+                
+                return cart
+
             })
         }
     }
@@ -44,7 +52,7 @@ export const CoffeCard = ({ id,img, name, price, available }) => {
             </div>
             <button onClick={handleClick}
                 className={` p-2 font-semibold rounded ${available ? 'bg-green opacity-70' : 'bg-taupe opacity-100'} group-hover:opacity-100 text-sm text-white transition duration-500`}>
-                    {available ? 'Añadir' : 'Agotado'}</button>
+                {available ? 'Añadir' : 'Agotado'}</button>
 
         </article>
     )

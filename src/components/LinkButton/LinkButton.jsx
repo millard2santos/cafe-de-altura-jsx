@@ -1,5 +1,7 @@
-export const LinkButton = ({bgColor,text}) => {
+import { Link } from "react-router-dom"
+
+export const LinkButton = ({bgColor,text, url, noShadow}) => {
   return (
-    <button className={`py-3 px-6 rounded shadow-normal ${bgColor} text-sm text-white`}>{text}</button>
+    <Link to={url}><button className={`py-3 font-semibold px-6 rounded ${noShadow ? '' : 'shadow-normal'} ${bgColor} text-sm ${bgColor === 'bg-transparent' ? 'text-green' : 'text-white'}`}>{text}</button></Link>
   )
 }

@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { CoffeContext } from '../../context/ContextProvider'
+import { LinkButton } from '../LinkButton/LinkButton'
 
 export const Bill = ({free}) => {
 
@@ -24,8 +25,10 @@ export const Bill = ({free}) => {
             </div>
             <p className="self-end text-xs text-grey">Incluye {Number(cart.totalPrice * 0.21).toFixed(2)}€ de IVA</p>
             <div className="flex justify-center items-center gap-10">
-                <button className=" bg-green text-white py-3 px-6 rounded text-sm font-semibold ">Ir a checkout</button>
-                <a href="store.html" className="text-green font-semibold text-sm ">Seguir comprando</a>
+                {/* <button className=" bg-green text-white py-3 px-6 rounded text-sm font-semibold ">Ir a checkout</button> */}
+                <LinkButton bgColor='bg-green' text='Ir a checkout' url='/checkout' noShadow={true} />
+                <LinkButton bgColor='bg-transparent' text='Seguir comprando' url='/store' noShadow={true} />
+                {/* <a href="store.html" className="text-green font-semibold text-sm ">Seguir comprando</a> */}
             </div>
         </div>
     )

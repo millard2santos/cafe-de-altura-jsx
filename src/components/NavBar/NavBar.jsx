@@ -28,7 +28,7 @@ export const NavBar = () => {
                     <img src={wPhone} alt="white phone" className="w-4.5 h-4.5" />
                     <Link to=''><p className='text-sm'>+34 919 49 05 18</p></Link>
                 </div>
-                <LinkButton bgColor='bg-grey' text="Iniciar sesión" />
+                <LinkButton bgColor='bg-grey' text="Iniciar sesión" url='/log'/>
             </div>
             <Link to="/cart">
                 <div className="flex items-center gap-2">
