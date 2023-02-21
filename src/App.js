@@ -21,7 +21,8 @@ function App() {
           <Route path={'/store'} element={<StorePage />} />
           <Route path={'/cart'} element={<CartPage />} />
           <Route path={'/log'} element={<UserLog />} />
-          <Route path={'/checkout'} element={<CheckOutPage />} />
+          <Route path={'/checkout/:pay'} element={<CheckOutPage />} />
+          <Route path={'/success'} element={<CheckOutPage />} />
         </Routes>
       </BrowserRouter>
     </ContextProvider>
