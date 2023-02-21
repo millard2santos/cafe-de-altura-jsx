@@ -36,12 +36,12 @@ export const Bill = ({free = 1, disable}) => {
             <div className={`flex ${pay === '1' ? 'justify-start' : 'justify-center'} items-center gap-10`}>
                 {/* <button className=" bg-green text-white py-3 px-6 rounded text-sm font-semibold ">Ir a checkout</button> */}
                 {
-                    pay === '1' ? <LinkButton bgColor='bg-green' text='Pagar y realizar pedido' url='/success' noShadow={true} /> 
+                    pay === '9' ? <LinkButton bgColor='bg-green' text='Pagar y realizar pedido' url='/success' noShadow={true} /> 
                     : cart.totalQuantity === 0 ? <LinkButton bgColor='bg-green' text='Ir a checkout' url={`/checkout/${free}`} noShadow={true} disable={true}/> 
                     : <LinkButton bgColor='bg-green' text='Ir a checkout' url={`/checkout/${free}`} noShadow={true} /> 
                 }
                 {
-                    pay === '1' ? '' : <LinkButton bgColor='bg-transparent' text='Seguir comprando' url='/store' noShadow={true} />
+                    pay === '9' ? '' : <LinkButton bgColor='bg-transparent' text='Seguir comprando' url='/store' noShadow={true} />
                 }
                 
                 {/* <a href="store.html" className="text-green font-semibold text-sm ">Seguir comprando</a> */}
