@@ -5,7 +5,7 @@ import { ConditionCard } from '../ConditionCard/ConditionCard'
 
 export const ThreeCardsSec = () => {
     return (
-        <section className="three-card flex flex-col justify-center items-center gap-6 p-12">
+        <section className="three-card flex flex-col justify-center items-center gap-6 p-12 bg-backgroundImg bg-cover bg-center">
             <h4 className=" font-medium text-2xl text-white">Café con las mejores condiciones</h4>
             <div className="hold-cards flex gap-6 ">
                 <ConditionCard img={taskCard} text0='Recibe tu pedido sin preocuparte' text1='Tienes cosas mas importantes en la cabeza, por eso con nuestra

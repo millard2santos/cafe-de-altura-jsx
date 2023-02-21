@@ -1,11 +1,13 @@
 import { useContext, useReducer, useRef } from "react"
 import { CoffeContext } from "../../context/ContextProvider"
+import { converter } from "../../utilities"
 
 
 export const CartItem = ({ item, i, last }) => {
 
 
     const { cart, setCart } = useContext(CoffeContext)
+    const sign = ','
 
    
 
@@ -56,7 +58,7 @@ export const CartItem = ({ item, i, last }) => {
                         <p className="text-sm">Paquete de café, 250gr</p>
                     </div>
                 </div>
-                <p className="font-semibold text-lg">{item.price * item.quantity},00€</p>
+                <p className="font-semibold text-lg">{converter(item.price * item.quantity,sign) }€</p>
             </div>
             {
                 i < last - 1 ? <div  className={`w-full h-px bg-grey opacity-10`}></div> : ''

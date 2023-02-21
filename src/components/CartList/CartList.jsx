@@ -7,12 +7,12 @@ import { DeliveryCard } from "../DeliveryCard/DeliveryCard"
 export const CartList = () => {
 
   const { cart } = useContext(CoffeContext)
-  const [freeDelivery, setFreeDelivery] = useState(true)
+  const [freeDelivery, setFreeDelivery] = useState(0)
 
 
   return (
     <section className="px-12 flex flex-col gap-8 min-h-[90vh] mb-40">
-      <h2 className="text-center text-green font-medium text-2xl mt-10">Cesta({cart.totalQuantity})</h2>
+      <h2 className="text-center text-green font-medium text-2xl mt-10">{cart.totalQuantity === 0 ? 'Cesta' : `Cesta(${cart.totalQuantity})`}</h2>
       <div className="flex justify-between">
         <div className="flex flex-col w-full px-6">
           <div className="flex flex-col gap-6">
@@ -40,7 +40,9 @@ export const CartList = () => {
                       las 13:00).' />
           </div>
         </div>
+
         <Bill free={freeDelivery} />
+
       </div>
     </section>
   )

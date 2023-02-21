@@ -4,7 +4,7 @@ export const DeliveryCard = ({ free, text0, text1, setFreeDelivery }) => {
 
     const handleChange = (e) => {
 
-        setFreeDelivery(prev => e.target.value === '0' ? true : false)
+        setFreeDelivery(prev => e.target.value === '0' ? '0' : '9')
 
     }
 
