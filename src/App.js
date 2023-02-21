@@ -2,16 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ContextProvider } from './context/ContextProvider';
 import CartPage from './pages/CartPage';
 import CheckOutPage from './pages/CheckOutPage';
-
-
 import MainPage from './pages/MainPage';
 import StorePage from './pages/StorePage';
 import { UserLog } from './pages/UserLog';
 
 function App() {
-
-
-
 
   return (
     <ContextProvider>
@@ -26,8 +21,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </ContextProvider>
-
-
   );
 }
 

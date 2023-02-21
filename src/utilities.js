@@ -27,12 +27,10 @@ const id = () => {
 }
 
 const converter = (num, sign) => {
-  console.log(typeof num);
   let result = num.toFixed(2)
   sign === '.' ? result = result : result = result.replace('.', ',')
   return result
 }
-
 
 export {
   converter,

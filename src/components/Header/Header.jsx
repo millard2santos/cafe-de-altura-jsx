@@ -1,4 +1,3 @@
-import mainSection from "../../assets/other/mainSection.jpg"
 import { LinkButton } from "../LinkButton/LinkButton"
 
 export const Header = () => {
@@ -15,7 +14,7 @@ export const Header = () => {
           <LinkButton bgColor='bg-green' text='Comprar' />
         </div>
       </article>
-      <img src={mainSection} alt="Main photo" className="rounded-3xl shadow-normal" />
+      <img src='https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-react.appspot.com/o/mainSection.jpg?alt=media&token=84ad7509-fae9-4af4-91ea-d3402f76a055' alt="Main photo" className="rounded-3xl shadow-normal" />
     </header>
   )
 }

@@ -3,10 +3,9 @@ import { useState, useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router'
 import { setDoc, doc } from 'firebase/firestore'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../../utilities'
 import { CoffeContext } from '../../context/ContextProvider'
-import { Link } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
 
 export const LogIn = () => {
@@ -17,53 +16,42 @@ export const LogIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        if (!registered) {
-            createUserWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
-                .then(async (userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    await setDoc(doc(db, 'users', user.uid), {
-                        username: e.target.user.value,
-                        uid: user.uid,
-                        cart: {
-                            totalQuantity: 0,
-                            totalPrice: 0,
-                            coffees: {}
-                        }
-                    })
-                    // ...
-                    setUser(user)
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // ..
-                });
-        } else {
-            signInWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
-                .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    // ...
-                    setUser(user)
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                });
-        }
-
-
-        
+        // if (!registered) {
+        //     createUserWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
+        //         .then(async (userCredential) => {
+        //             // Signed in 
+        //             const user = userCredential.user;
+        //             await setDoc(doc(db, 'users', user.uid), {
+        //                 username: e.target.user.value,
+        //                 uid: user.uid,
+        //                 cart: {
+        //                     totalQuantity: 0,
+        //                     totalPrice: 0,
+        //                     coffees: {}
+        //                 }
+        //             })
+        //             setUser(user)
+        //         })
+        //         .catch((error) => {
+        //             const errorCode = error.code;
+        //             const errorMessage = error.message;
+        //         });
+        // } else {
+        signInWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                setUser(user)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+        // }
     }
 
     const handleClick = () => {
         navigate('/log')
     }
-
-
-
 
     return (
         <Popup
@@ -87,7 +75,6 @@ export const LogIn = () => {
                                 No tienes cuenta? Registrate!!
                             </button>
                             <i onClick={close} className="fa-solid fa-x text-taupe text-2xl absolute top-6 right-10 cursor-pointer p-2 hover:scale-110 transition-transform duration-100"></i>
-
                         </div>
                     </div>
                 </>

@@ -1,4 +1,3 @@
-
 export const SubFooter = () => {
   return (
     <section className="flex justify-center text-sm font-semibold bg-darkGrey py-3 text-white">

@@ -8,11 +8,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { auth, db } from '../utilities'
 import { CoffeContext } from '../context/ContextProvider'
 
-
-
-
 export const UserLog = () => {
-
 
     const { setUser } = useContext(CoffeContext)
     const [registered, setRegistered] = useState(true)

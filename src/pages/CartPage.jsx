@@ -6,11 +6,9 @@ import { collection, query, where, getDocs, setDoc, doc } from 'firebase/firesto
 import { useContext, useEffect } from "react"
 import { CoffeContext } from "../context/ContextProvider"
 
-
 const CartPage = () => {
 
     const { cart, user } = useContext(CoffeContext)
-    console.log(user)
 
     const setData = async () => {
         try {
@@ -21,20 +19,15 @@ const CartPage = () => {
                     'cart': { ...cart }
                 })
             }
-
-        } catch (err) {
+        }
+        catch (err) {
             console.log(err)
         }
     }
 
-
     useEffect(() => {
         setData();
     }, [])
-
-
-
-
 
     return (
         <>

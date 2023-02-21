@@ -1,6 +1,4 @@
-
 export const InputComponent = ({ text, type, id, placeholder, grid }) => {
-
 
     return (
         <div className={`flex flex-col gap-[3px] ${grid ? `${grid}` : ''}`}>

@@ -1,9 +1,5 @@
-import cup from '../../assets/icons/cup.png'
-import wPhone from '../../assets/icons/wPhone.png'
-import whiteMail from '../../assets/icons/whiteMail.png'
 import { Logo } from '../Logo/Logo'
 import { NavLinks } from '../NavLinks/NavLinks'
-
 
 export const Footer = () => {
     return (
@@ -16,15 +12,14 @@ export const Footer = () => {
                 <div className="w-1/2">
                     <p id="size18" className="text-lg mb-5">Te ayudamos en</p>
                     <button className="flex items-center py-4 px-6 gap-2.5 bg-grey text-white rounded border-none mb-5">
-                        <img src={wPhone} alt="" />
+                        <img src='https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-react.appspot.com/o/wPhone.png?alt=media&token=9a5885b5-3bb0-4f85-a48b-8f55406656c1' alt="" />
                         +34 919 49 05 18
                     </button>
                     <button className="flex items-center py-4 px-6 gap-2.5 bg-grey text-white rounded border-none mb-5">
-                        <img src={whiteMail} alt="" id="mail-img" />
+                        <img src='https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-react.appspot.com/o/whiteMail.png?alt=media&token=9d862f3d-8f0a-4399-a4ee-3b3931556fe8' alt="" id="mail-img" />
                         hola@cafedealtura.com
                     </button>
                 </div>
-
                 <div className="footer-link flex gap-[118px]  w-1/2">
                     <div className="flex flex-col items-start gap-4">
                         <NavLinks text='Tienda' url='/store' />
