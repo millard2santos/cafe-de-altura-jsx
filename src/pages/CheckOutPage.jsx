@@ -3,13 +3,16 @@ import { db } from "../utilities"
 import { collection, query, where, getDocs, setDoc, doc } from 'firebase/firestore'
 import { useContext, useEffect } from "react"
 import { CoffeContext } from "../context/ContextProvider"
+import { NavBar } from '../components/NavBar/NavBar'
+import { Payment } from "../components/Payment/Payment"
+import { Bill } from "../components/Bill/Bill"
 
 
 const CheckOutPage = () => {
 
 
     const { cart, user } = useContext(CoffeContext)
-    console.log(user)
+
 
     const setData = async () => {
         try {
@@ -31,7 +34,19 @@ const CheckOutPage = () => {
         setData();
     }, [])
 
-    return <p>hola</p>
+    return (
+        <>
+            <NavBar />
+            <div className="py-10 px-12">
+                <h2 className="text-center text-green font-medium text-2xl">Checkout</h2>
+                <div className="flex justify-between">
+                    <Payment />
+                    <Bill />
+                </div>
+            </div>
+
+        </>
+    )
 }
 
 export default CheckOutPage

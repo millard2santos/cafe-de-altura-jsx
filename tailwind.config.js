@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        backgroundImg: "url('/src/assets/other/background-coffe.jpg')"
+      },
       colors: {
         white: '#FFF',
         grey: '#515051',
