@@ -1,8 +1,8 @@
-
 import { ExtraLink } from '../ExtraLink/ExtraLink'
 import { QaCard } from '../QaCard/QaCard'
 
 export const QaSec = () => {
+    
     return (
         <section className="qa bg-green py-12 px-[306px]">
             <div className="flex flex-col justify-center items-center gap-4 text-white">
@@ -22,7 +22,6 @@ export const QaSec = () => {
                         intermediarios. Así obtenemos el mejor precio para ti y la persona que está detrás de los granos
                         de
                         café recibe el mayor beneficio posible.' />
-                
                 <ExtraLink text='Resolvemos tus dudas' color='text-white' url='/' />
             </div>
         </section>

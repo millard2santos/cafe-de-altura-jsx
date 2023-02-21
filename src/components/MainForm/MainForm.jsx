@@ -1,6 +1,3 @@
-import greyPhone from '../../assets/icons/greyPhone.png'
-import greyMail from '../../assets/icons/greyMail.png'
-
 export const MainForm = () => {
     return (
         <section className="form bg-taupe px-10">
@@ -18,11 +15,11 @@ export const MainForm = () => {
                         <p>Springfield,OR 12345</p>
                     </div>
                     <div className="form-txt-tlf flex gap-4">
-                        <img src={greyPhone} alt="" />
+                        <img src='https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-react.appspot.com/o/greyPhone.png?alt=media&token=7ae118fc-09d8-4d8f-906f-14ae51cacc3e' alt="" />
                         <p>+1 (555) 123-4567</p>
                     </div>
                     <div className="form-txt-mail flex gap-4">
-                        <img src={greyMail} alt="" />
+                        <img src='https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-react.appspot.com/o/greyMail.png?alt=media&token=c531fc6e-fa12-402b-8275-362297fef4bc' alt="" />
                         <p>support@example.com</p>
                     </div>
                     <div className="form-txt-last mt-5 flex gap-1.5">
@@ -47,7 +44,6 @@ export const MainForm = () => {
                         <div className="flex flex-col gap-1 ">
                             <label className="text-xs text-grey" htmlFor="tlf">Teléfono</label>
                             <div className="flex border border-taupe shadow-sm rounded-md hover:border-greyHoverInput focusPoint outline outline-1 outline-white ">
-
                                 <select name="" id="select" className="text-sm px-2 rounded-md py-3 cursor-pointer focus:outline-none">
                                     <option value="">US</option>
                                     <option value="">ES</option>

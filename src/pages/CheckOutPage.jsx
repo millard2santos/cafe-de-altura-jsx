@@ -1,18 +1,14 @@
-
 import { db } from "../utilities"
-import { collection, query, where, getDocs, setDoc, doc } from 'firebase/firestore'
+import { setDoc, doc } from 'firebase/firestore'
 import { useContext, useEffect } from "react"
 import { CoffeContext } from "../context/ContextProvider"
 import { NavBar } from '../components/NavBar/NavBar'
 import { Payment } from "../components/Payment/Payment"
 import { Bill } from "../components/Bill/Bill"
 
-
 const CheckOutPage = () => {
 
-
     const { cart, user } = useContext(CoffeContext)
-
 
     const setData = async () => {
         try {
@@ -23,12 +19,10 @@ const CheckOutPage = () => {
                     'cart': { ...cart }
                 })
             }
-
         } catch (err) {
             console.log(err)
         }
     }
-
 
     useEffect(() => {
         setData();
@@ -44,7 +38,6 @@ const CheckOutPage = () => {
                     <Bill />
                 </div>
             </div>
-
         </>
     )
 }

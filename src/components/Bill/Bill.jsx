@@ -4,7 +4,6 @@ import { CoffeContext } from '../../context/ContextProvider'
 import { converter } from '../../utilities'
 import { LinkButton } from '../LinkButton/LinkButton'
 
-
 export const Bill = ({free = 1}) => {
 
     const {cart} = useContext(CoffeContext)
@@ -30,7 +29,6 @@ export const Bill = ({free = 1}) => {
             </div>
             <p className="self-end text-xs text-grey">Incluye {converter(cart.totalPrice * 0.21, sign)}€ de IVA</p>
             <div className={`flex ${pay === '1' ? 'justify-start' : 'justify-center'} items-center gap-10`}>
-                {/* <button className=" bg-green text-white py-3 px-6 rounded text-sm font-semibold ">Ir a checkout</button> */}
                 {
                     pay === '9' ? <LinkButton bgColor='bg-green' text='Pagar y realizar pedido' url='/success' noShadow={true} /> 
                     : cart.totalQuantity === 0 ? <LinkButton bgColor='bg-green' text='Ir a checkout' url={`/checkout/${free}`} noShadow={true} disable={true}/> 
@@ -39,7 +37,6 @@ export const Bill = ({free = 1}) => {
                 {
                     pay === '9' ? '' : <LinkButton bgColor='bg-transparent' text='Seguir comprando' url='/store' noShadow={true} />
                 }
-                {/* <a href="store.html" className="text-green font-semibold text-sm ">Seguir comprando</a> */}
             </div>
         </div>
     )

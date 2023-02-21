@@ -8,11 +8,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { auth, db } from '../utilities'
 import { CoffeContext } from '../context/ContextProvider'
 
-
-
-
 export const UserLog = () => {
-
 
     const { setUser } = useContext(CoffeContext)
     const [registered, setRegistered] = useState(true)
@@ -20,7 +16,6 @@ export const UserLog = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         if (!registered) {
             createUserWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
                 .then(async (userCredential) => {
@@ -35,20 +30,18 @@ export const UserLog = () => {
                             coffees: {}
                         }
                     })
-                    // ...
                     setUser(user)
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // ..
                 });
-        } else {
+        } 
+        else 
+        {
             signInWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
                 .then((userCredential) => {
-                    // Signed in 
                     const user = userCredential.user;
-                    // ...
                     setUser(user)
                 })
                 .catch((error) => {
@@ -56,25 +49,19 @@ export const UserLog = () => {
                     const errorMessage = error.message;
                 });
         }
-
-
         navigate('/')
     }
-
 
     const handleClick = () => {
         setRegistered(prev => !prev)
     }
-
+    
     const handleLogOut = () => {
         signOut(auth).then(() => {
-            // Sign-out successful.
             setUser(false)
         }).catch((error) => {
-            // An error happened.
         });
         navigate('/')
-
     }
 
     return (

@@ -1,46 +1,41 @@
-
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router'
-import { setDoc, doc } from 'firebase/firestore'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { auth, db } from '../../utilities'
+import {  signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../utilities'
 import { CoffeContext } from '../../context/ContextProvider'
-import { Link } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
 
 export const LogIn = () => {
 
     const { setUser } = useContext(CoffeContext)
-    const [registered, setRegistered] = useState(true)
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        if (!registered) {
-            createUserWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
-                .then(async (userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    await setDoc(doc(db, 'users', user.uid), {
-                        username: e.target.user.value,
-                        uid: user.uid,
-                        cart: {
-                            totalQuantity: 0,
-                            totalPrice: 0,
-                            coffees: {}
-                        }
-                    })
-                    // ...
-                    setUser(user)
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // ..
-                });
-        } else {
+        // if (!registered) {
+        //     createUserWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
+        //         .then(async (userCredential) => {
+        //             // Signed in 
+        //             const user = userCredential.user;
+        //             await setDoc(doc(db, 'users', user.uid), {
+        //                 username: e.target.user.value,
+        //                 uid: user.uid,
+        //                 cart: {
+        //                     totalQuantity: 0,
+        //                     totalPrice: 0,
+        //                     coffees: {}
+        //                 }
+        //             })
+        //             // ...
+        //             setUser(user)
+        //         })
+        //         .catch((error) => {
+        //             const errorCode = error.code;
+        //             const errorMessage = error.message;
+        //             // ..
+        //         });
+        // } else {
             signInWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
                 .then((userCredential) => {
                     // Signed in 
@@ -52,25 +47,18 @@ export const LogIn = () => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                 });
-        }
-
-
-        
+        // }
     }
 
     const handleClick = () => {
         navigate('/log')
     }
 
-
-
-
     return (
         <Popup
             trigger={<button className={`py-3 font-semibold px-6 rounded text-sm bg-grey active:scale-90 hover:bg-taupe hover:text-black transition duration-100 `}> Iniciar Sesion </button>}
             modal
-            nested
-        >
+            nested>
             {close => (
                 <>
                     <div className='w-screen h-screen relative flex justify-center items-center bg-[rgba(0,0,0,0.40)] '>
@@ -87,7 +75,6 @@ export const LogIn = () => {
                                 No tienes cuenta? Registrate!!
                             </button>
                             <i onClick={close} className="fa-solid fa-x text-taupe text-2xl absolute top-6 right-10 cursor-pointer p-2 hover:scale-110 transition-transform duration-100"></i>
-
                         </div>
                     </div>
                 </>
