@@ -1,6 +1,6 @@
 
 
-export const DeliveryCard = ({free,text0,text1, setFreeDelivery}) => {
+export const DeliveryCard = ({ free, text0, text1, setFreeDelivery }) => {
 
     const handleChange = (e) => {
 
@@ -12,15 +12,15 @@ export const DeliveryCard = ({free,text0,text1, setFreeDelivery}) => {
     return (
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-                <input onChange={handleChange} className="accent-green w-3.5 h-3.5 envio" type="radio" id={free? 'free' : 'paid'} name="envio" value={free? '0' : '9'} />
-                <label htmlFor={free? 'free' : 'paid'}>
+                <input onChange={handleChange} className="accent-green w-3.5 h-3.5 envio" type="radio" id={free ? 'free' : 'paid'} name="envio" value={free ? '0' : '9'} checked={free} />
+                <label htmlFor={free ? 'free' : 'paid'}>
                     <div className="flex flex-col gap-1">
                         <p className="font-semibold text-sm">{text0}</p>
                         <p className="text-sm">{text1}</p>
                     </div>
                 </label>
             </div>
-            <p className="font-semibold text-lg">{free? 'GRATIS' : '9,00€'}</p>
+            <p className="font-semibold text-lg">{free ? 'GRATIS' : '9,00€'}</p>
         </div>
     )
 }

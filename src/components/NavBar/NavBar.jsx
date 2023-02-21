@@ -10,6 +10,7 @@ import { useContext } from 'react'
 import { CoffeContext } from '../../context/ContextProvider'
 import { auth } from '../../utilities'
 import { signOut } from 'firebase/auth'
+import { LogIn } from '../LogIn/LogIn'
 
 export const NavBar = () => {
 
@@ -45,8 +46,12 @@ export const NavBar = () => {
                     }
                     {user ? <p className='font-semibold'>Hola, {user.email.slice(0,user.email.indexOf('@'))}</p> : <Link to=''><p className='text-sm'>+34 919 49 05 18</p></Link>}
                 </div>
-                {user ?<button onClick={handleLogOut} className={`py-3 font-semibold px-6 rounded bg-grey shadow-normal text-sm `}>Log Out</button>
-                  : <LinkButton bgColor='bg-grey' text="Iniciar sesión" url='/log'/>}
+                {user ?<button onClick={handleLogOut} className={`py-3 font-semibold px-6 rounded bg-grey shadow-normal text-sm active:scale-90 hover:bg-taupe hover:text-black transition duration-100 `}>Log Out</button>
+                  : <LogIn />}
+
+                    {/* <LinkButton bgColor='bg-grey' text="Iniciar sesión" url='/log'/> */}
+
+
             </div>
             <Link to="/cart">
                 <div className="flex items-center gap-2">

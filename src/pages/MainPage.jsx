@@ -7,11 +7,13 @@ import { Location } from "../components/Location/Location"
 import { MainForm } from "../components/MainForm/MainForm"
 import { Footer } from "../components/Footer/Footer"
 import { SubFooter } from "../components/SubFooter/SubFooter"
+import { LogIn } from "../components/LogIn/LogIn"
 
 
 const MainPage = () => {
     return (
         <>
+        
         <NavBar />
         <Header />
         <ThreeCardsSec />
