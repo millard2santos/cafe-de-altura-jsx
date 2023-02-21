@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        backgroundImg: "url('/src/assets/other/background-coffe.jpg')"
+        backgroundImg: "url('https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-react.appspot.com/o/background-coffe.jpg?alt=media&token=79b1b2d9-c179-4597-9f32-0019e61c6917')"
       },
       colors: {
         white: '#FFF',

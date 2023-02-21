@@ -3,7 +3,6 @@ import { NavLinks } from '../NavLinks/NavLinks'
 
 
 export const Footer = () => {
-    
     return (
         <footer className="flex flex-col bg-black text-white py-7 px-10">
             <div className="footer-1 flex  items-center gap-2 mb-2.5">
@@ -22,6 +21,7 @@ export const Footer = () => {
                         hola@cafedealtura.com
                     </button>
                 </div>
+
                 <div className="footer-link flex gap-[118px]  w-1/2">
                     <div className="flex flex-col items-start gap-4">
                         <NavLinks text='Tienda' url='/store' />
@@ -37,6 +37,7 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
+
         </footer >
     )
 }
