@@ -5,16 +5,12 @@ import { converter } from '../../utilities'
 import { LinkButton } from '../LinkButton/LinkButton'
 
 
-export const Bill = ({free = 1, disable}) => {
+export const Bill = ({free = 1}) => {
 
     const {cart} = useContext(CoffeContext)
     const { pay } = useParams();
     const sign = ','
-    
 
-
-
-   
     return (
         <div className=" bg-offWhite flex flex-col gap-4 p-6 self-start">
             <p className="text-lg font-semibold">Total del carrito</p>
@@ -43,7 +39,6 @@ export const Bill = ({free = 1, disable}) => {
                 {
                     pay === '9' ? '' : <LinkButton bgColor='bg-transparent' text='Seguir comprando' url='/store' noShadow={true} />
                 }
-                
                 {/* <a href="store.html" className="text-green font-semibold text-sm ">Seguir comprando</a> */}
             </div>
         </div>
