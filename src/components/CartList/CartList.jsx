@@ -7,7 +7,7 @@ import { DeliveryCard } from "../DeliveryCard/DeliveryCard"
 export const CartList = () => {
 
   const { cart } = useContext(CoffeContext)
-  const [freeDelivery, setFreeDelivery] = useState(0)
+  const [freeDelivery, setFreeDelivery] = useState(true)
 
   return (
     <section className="px-12 flex flex-col gap-8 min-h-[90vh] mb-40">
@@ -34,7 +34,7 @@ export const CartList = () => {
             <DeliveryCard free={false} setFreeDelivery={setFreeDelivery} text0='Envío urgente 24h' text1='Recibe tu pedido en las siguientes 24h (Para pedidos realizados antes de las 13:00).' />
           </div>
         </div>
-        <Bill free={freeDelivery} />
+        <Bill freeDelivery={freeDelivery} />
       </div>
     </section>
   )

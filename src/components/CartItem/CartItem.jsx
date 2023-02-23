@@ -44,7 +44,7 @@ export const CartItem = ({ item, i, last }) => {
                     </div>
                     <img src={item.img} alt="" className="w-[55px] h-[55px]" />
                     <div className="flex flex-col justify-center">
-                        <p className="font-semibold text-sm">{item.brand}</p>
+                        <p className="font-semibold text-sm">{item.name}</p>
                         <p className="text-sm">Paquete de café, 250gr</p>
                     </div>
                 </div>

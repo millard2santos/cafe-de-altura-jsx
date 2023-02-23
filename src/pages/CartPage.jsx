@@ -9,25 +9,25 @@ import { CoffeContext } from "../context/ContextProvider"
 
 const CartPage = () => {
 
-    const { cart, user } = useContext(CoffeContext)
+    // const { cart, user } = useContext(CoffeContext)
 
-    const setData = async () => {
-        try {
-            if (user) {
-                await setDoc(doc(db, 'users', user.uid), {
-                    username: user.email,
-                    uid: user.uid,
-                    'cart': { ...cart }
-                })
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    // const setData = async () => {
+    //     try {
+    //         if (user) {
+    //             await setDoc(doc(db, 'users', user.uid), {
+    //                 username: user.email,
+    //                 uid: user.uid,
+    //                 'cart': { ...cart }
+    //             })
+    //         }
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
-    useEffect(() => {
-        setData();
-    }, [])
+    // useEffect(() => {
+    //     setData();
+    // }, [])
 
     return (
         <>
