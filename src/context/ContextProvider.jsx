@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react"
-import { setDoc, doc, getDoc } from 'firebase/firestore'
+import { setDoc, doc, getDoc, query, collection, where } from 'firebase/firestore'
 import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "../utilities"
 
@@ -10,6 +10,7 @@ export const CoffeContext = createContext()
 export const ContextProvider = ({ children }) => {
 
   const [coffees, setCoffees] = useState()
+  const [showCart, setShowCart] = useState([])
   const [cart, setCart] = useState({
     totalQuantity: 0,
     totalPrice: 0,
@@ -48,6 +49,9 @@ export const ContextProvider = ({ children }) => {
           'cart': { ...cart }
         })
       }
+
+    
+
     } catch (err) {
       console.log(err)
     }
@@ -60,9 +64,13 @@ export const ContextProvider = ({ children }) => {
 
 
 
+ 
+
+
+
 
   return (
-    <CoffeContext.Provider value={{ coffees, setCart, cart, setUser, user }}>
+    <CoffeContext.Provider value={{ coffees, setCart, cart, setUser, user, showCart }}>
       {children}
     </CoffeContext.Provider>
   )
