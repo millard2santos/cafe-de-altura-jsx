@@ -15,8 +15,9 @@ export const ContextProvider = ({ children }) => {
     totalPrice: 0,
     coffees: {}
   })
+  const [car2t, setCart2] = useState([])
   const [user, setUser] = useState(null)
-  
+
   useEffect(() => {
 
     fetch('https://cafe-de-altura-api.vercel.app/api/products').then(res => res.json()).then((res) => setCoffees(res.products))
@@ -24,6 +25,7 @@ export const ContextProvider = ({ children }) => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log('conectado')
+        console.log(user)
 
         await getDoc(doc(db, 'users', user.uid)).then(res => res.data()).then(res => setCart(res.cart))
         setUser(user)
@@ -57,6 +59,8 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     setData();
   }, [cart])
+
+
 
 
 
