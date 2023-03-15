@@ -1,15 +1,18 @@
+import { useEffect } from "react"
+
 export const DeliveryCard = ({ free, text0, text1, setFreeDelivery }) => {
 
     const handleChange = (e) => {
-        setFreeDelivery(e.target.value === '0' ? true : false)
+        setFreeDelivery(prev => e.target.value === '0' ? true : false)
     }
 
+    
     return (
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
                 {
                     free ? <input onChange={handleChange} className="accent-green w-3.5 h-3.5 envio" type="radio" id='free' name="envio" value='0'/>
-                    : <input onChange={handleChange} className="accent-green w-3.5 h-3.5 envio" type="radio" id='paid' name="envio" value='checked'  />
+                    : <input onChange={handleChange} className="accent-green w-3.5 h-3.5 envio" type="radio" id='paid' name="envio" value='9' checked />
                 }
                 <label htmlFor={free ? 'free' : 'paid'}>
                     <div className="flex flex-col gap-1">

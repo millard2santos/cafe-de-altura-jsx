@@ -1,4 +1,13 @@
 export const MainForm = () => {
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+    }
+
+
+
     return (
         <section className="form bg-taupe px-10">
             <div className="hold-form flex justify-center gap-6">
@@ -28,7 +37,7 @@ export const MainForm = () => {
                     </div>
                 </article>
                 <article className="py-8 pl-16 pr-[51px] bg-white">
-                    <form action="" className="flex flex-col gap-6">
+                    <form onSubmit={handleSubmit} action="" className="flex flex-col gap-6">
                         <div className="form-actual-name flex flex-col gap-1">
                             <label className="text-xs text-grey" htmlFor="name">Nombre completo</label>
                             <input type="text" id="name" name="name"
@@ -37,19 +46,19 @@ export const MainForm = () => {
                         </div>
                         <div className="form-actual-email flex flex-col gap-1">
                             <label className="text-xs text-grey" htmlFor="mail">Email</label>
-                            <input type="email" id="mail" name="e-mail"
+                            <input type="email" id="email" name="email"
                                 className="w-[470px] py-2 px-4 shadow-sm rounded-md border border-taupe hover:border-greyHoverInput focus:outline-greenFocusInput"
                                 required />
                         </div>
                         <div className="flex flex-col gap-1 ">
                             <label className="text-xs text-grey" htmlFor="tlf">Teléfono</label>
                             <div className="flex border border-taupe shadow-sm rounded-md hover:border-greyHoverInput focusPoint outline outline-1 outline-white ">
-                                <select name="" id="select" className="text-sm px-2 rounded-md py-3 cursor-pointer focus:outline-none">
+                                <select name="country" id="country" className="text-sm px-2 rounded-md py-3 cursor-pointer focus:outline-none">
                                     <option value="">US</option>
                                     <option value="">ES</option>
                                     <option value="">FR</option>
                                 </select>
-                                <input className="outline-none border-none w-full rounded-md" type="tel" id="tlf" name="Phone"
+                                <input className="outline-none border-none w-full rounded-md" type="tel" id="tel" name="tel"
                                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+1 (555) 987-6543" />
                             </div>
                         </div>
@@ -57,7 +66,7 @@ export const MainForm = () => {
                             className="focus:outline-greenFocusInput py-2 px-4 shadow-sm rounded-md border border-taupe hover:border-greyHoverInput"
                             name="comment" id="comment" rows={6} placeholder="¿En qué puedo ayudarte?"></textarea>
                         <div className="flex items-center gap-3" id="form-check">
-                            <input type="checkbox" name="Accept" id="condition"
+                            <input type="checkbox" name="condition" id="condition"
                                 className="accent-green outline-none py-2 px-4 shadow-sm rounded-md border border-taupe"
                                 required />
                             <label className="text-sm text-grey" htmlFor="condition">Acepto la <span className="condition-span">Política

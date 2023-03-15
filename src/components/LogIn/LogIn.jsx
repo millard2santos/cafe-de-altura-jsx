@@ -65,7 +65,7 @@ export const LogIn = () => {
                         <div className='w-1/2 h-96 relative bg-green rounded-md flex flex-col justify-start p-10 text-white '>
                             <Logo />
                             <form className='flex flex-col items-center gap-3' action="" onSubmit={handleSubmit}>
-                                <label htmlFor="user">Nombre de Usuario:</label>
+                                <label htmlFor="user">Email:</label>
                                 <input className='text-sm text-black rounded-md py-2.5 px-2 border border-taupe' type="text" name="user" id="user" required />
                                 <label htmlFor="password">Contraseña:</label>
                                 <input className='text-sm text-black rounded-md py-2.5 px-2 border border-taupe' type="password" name="password" id="password" required />

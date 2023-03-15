@@ -7,7 +7,7 @@ import { DeliveryCard } from "../DeliveryCard/DeliveryCard"
 export const CartList = () => {
 
   const { cart } = useContext(CoffeContext)
-  const [freeDelivery, setFreeDelivery] = useState(true)
+  const [freeDelivery, setFreeDelivery] = useState(false)
 
   return (
     <section className="px-12 flex flex-col gap-8 min-h-[90vh] mb-40">

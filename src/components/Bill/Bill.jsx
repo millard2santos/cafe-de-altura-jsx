@@ -9,7 +9,7 @@ export const Bill = ({freeDelivery}) => {
     const {cart} = useContext(CoffeContext)
     const { pay } = useParams();
     const sign = ','
-
+    console.log(freeDelivery)
     return (
         <div className=" bg-offWhite flex flex-col gap-4 p-6 self-start">
             <p className="text-lg font-semibold">Total del carrito</p>
