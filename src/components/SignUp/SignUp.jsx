@@ -1,34 +1,63 @@
-import { useContext } from 'react';
-import Popup from 'reactjs-popup';
-import { useNavigate } from 'react-router'
-import {  signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../utilities'
-import { CoffeContext } from '../../context/ContextProvider'
-import { Logo } from '../Logo/Logo';
 
-export const LogIn = () => {
+import Popup from 'reactjs-popup';
+import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { Footer } from '../components/Footer/Footer'
+import { NavBar } from '../components/NavBar/NavBar'
+import { SubFooter } from '../components/SubFooter/SubFooter'
+import { setDoc, doc } from 'firebase/firestore'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { auth, db } from '../utilities'
+import { CoffeContext } from '../context/ContextProvider'
+
+export const SignUp = () => {
 
     const { setUser } = useContext(CoffeContext)
+    const [registered, setRegistered] = useState(true)
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (!registered) {
+            createUserWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
+                .then(async (userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    await setDoc(doc(db, 'users', user.uid), {
+                        username: e.target.user.value,
+                        uid: user.uid,
+                        cart: {
+                            totalQuantity: 0,
+                            totalPrice: 0,
+                            coffees: {}
+                        }
+                    })
+                    setUser(user)
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
+        } 
+        else 
+        {
             signInWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
                 .then((userCredential) => {
                     const user = userCredential.user;
                     setUser(user)
                 })
                 .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
                 });
+        }
+        navigate('/')
     }
 
-    
-    const handleClick = () => {
-        navigate('/log')
-    }
 
-    return (
-        <Popup
+
+  return (
+    <Popup
             trigger={<button className={`py-3 font-semibold px-6 rounded text-sm bg-grey active:scale-90 hover:bg-taupe hover:text-black transition duration-100 `}> Iniciar Sesion </button>}
             modal
             nested>
@@ -53,5 +82,5 @@ export const LogIn = () => {
                 </>
             )}
         </Popup>
-    )
+  )
 }

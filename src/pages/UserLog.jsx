@@ -36,9 +36,8 @@ export const UserLog = () => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                 });
-        } 
-        else 
-        {
+        }
+        else {
             signInWithEmailAndPassword(auth, e.target.user.value, e.target.password.value)
                 .then((userCredential) => {
                     const user = userCredential.user;
@@ -55,7 +54,7 @@ export const UserLog = () => {
     const handleClick = () => {
         setRegistered(prev => !prev)
     }
-    
+
     const handleLogOut = () => {
         signOut(auth).then(() => {
             setUser(false)
@@ -67,18 +66,18 @@ export const UserLog = () => {
     return (
         <>
             <NavBar />
-            <p>{registered ? 'Iniciar sesion' : 'Crear cuenta'}</p>
-            <form className='min-h-[50vh]' action="" onSubmit={handleSubmit}>
-                <label htmlFor="user">Nombre de Usuario:</label>
-                <input className='border' type="text" name="user" id="user" required />
-                <label htmlFor="password">Contraseña:</label>
-                <input className='border' type="password" name="password" id="password" required />
-                <input className='border' type="submit" value={'Iniciar Sesion'} />
-            </form>
-            <button className='hover:scale-110 transition-transform duration-100' onClick={handleClick}>
-                {registered ? 'No tienes cuenta? Registrate!!' : 'Ya tienes cuenta? Compra!!'}
-            </button>
-            <button onClick={handleLogOut} className='hover:scale-110 transition-transform duration-100'>Desconectarse</button>
+            <div className='bg-taupe flex flex-col justify-center items-center min-h-[50vh] '>
+             
+                <form className='flex flex-col items-center gap-2' action="" onSubmit={handleSubmit} >
+                    <label htmlFor="user">Correo electrónico:</label>
+                    <input className='border rounded-md py-1 px-2' type="text" name="user" id="user" required />
+                    <label htmlFor="password">Contraseña:</label>
+                    <input className='border rounded-md py-1 px-2' type="password" name="password" id="password" required />
+                    <input className='border p-2 rounded-lg bg-white hover:scale105 hover:bg-green transition duration-300 hover:text-white cursor-pointer' type="submit" value={'Iniciar Sesion'} />
+                </form>
+
+              
+            </div>
             <Footer />
             <SubFooter />
         </>
