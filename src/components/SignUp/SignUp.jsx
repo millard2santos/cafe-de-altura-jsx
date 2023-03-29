@@ -2,9 +2,7 @@
 import Popup from 'reactjs-popup';
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Footer } from '../components/Footer/Footer'
-import { NavBar } from '../components/NavBar/NavBar'
-import { SubFooter } from '../components/SubFooter/SubFooter'
+
 import { setDoc, doc } from 'firebase/firestore'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth, db } from '../utilities'
