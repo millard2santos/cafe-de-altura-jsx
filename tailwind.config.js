@@ -7,7 +7,7 @@ module.exports = {
         backgroundImg: "url('https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-react.appspot.com/o/background-coffe.jpg?alt=media&token=79b1b2d9-c179-4597-9f32-0019e61c6917')"
       },
       colors: {
-        white: '#FFF',
+        white: '#FFFFFF',
         grey: '#515051',
         darkGrey: '#2B2A2B',
         black: '#1F1815',

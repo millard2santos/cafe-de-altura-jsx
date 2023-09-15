@@ -7,7 +7,7 @@ import StorePage from './pages/StorePage';
 import { UserLog } from './pages/UserLog';
 
 function App() {
-
+  const x = 19
   return (
     <ContextProvider>
       <BrowserRouter>
